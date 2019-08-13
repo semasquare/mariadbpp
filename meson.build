@@ -27,6 +27,7 @@ install_headers([
     'include/mariadb++/concurrency.hpp'
 ], subdir: 'mariadb++')
 
+thread_dep = dependency('threads')
 libmariadb_dep = dependency('libmariadb')
 
 sources = [
@@ -50,7 +51,7 @@ mariadbpp_lib = library(
     'mariadbpp',
     sources,
     include_directories : includes,
-    dependencies : [libmariadb_dep],
+    dependencies : [libmariadb_dep, thread_dep],
     install: true
 )
 
