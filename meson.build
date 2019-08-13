@@ -57,5 +57,6 @@ mariadbpp_lib = library(
 
 mariadbpp_dep = declare_dependency(
     include_directories : includes,
+    dependencies : [libmariadb_dep, thread_dep],
     link_with: mariadbpp_lib
 )
